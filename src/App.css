@@ -1,0 +1,218 @@
+/* === Global Styles === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+  color: #333;
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* === Navbar === */
+.navbar {
+  background: linear-gradient(90deg, #4a90e2, #357acc);
+  padding: 1.2rem;
+  color: #111;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Navigation Links === */
+nav {
+  margin: 1rem 0;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+}
+nav a::after {
+  content: "";
+  height: 2px;
+  background-color: #4fda3d;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  transition: width 0.3s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+/* === Form === */
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+input, textarea {
+  padding: 0.9rem;
+  width: 90%;
+  max-width: 500px;
+  font-size: 1rem;
+  border: 1px solid #cf7f16;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s;
+}
+input:focus, textarea:focus {
+  border-color: #e5e864;
+  outline: none;
+}
+input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+/* === Button === */
+button {
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  background-color: #4a90e2;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #357acc;
+  transform: scale(1.05);
+}
+
+/* === Flashcard List === */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+.flashcard {
+  width: 220px;
+  height: 160px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.flashcard.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.front, .back {
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+  font-size: 18px;
+  background-color: #25dc7def;
+  border: 1px solid #ddd;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.back {
+  background-color: #4a90e2;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* === Quiz Cards === */
+.quiz-info {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+  font-weight: 500;
+}
+.quiz-card {
+  width: 320px;
+  height: 160px;
+  margin: 20px auto;
+  background: linear-gradient(to top right, #ffffff, #0360a3);
+  border: 2px solid #4a90e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.quiz-card:hover {
+  transform: scale(1.05);
+}
+.quiz-card.flipped {
+  background-color: #4a90e2;
+  color: #101211;
+}
+
+/* === Quiz Buttons === */
+.quiz-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+.quiz-buttons button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.quiz-buttons button:hover {
+  background-color: #357acc;
+}
+
+/* === Result Message === */
+.result {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* === Responsive Design === */
+@media (max-width: 600px) {
+  .App {
+    padding: 1rem;
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+
+  .flashcard, .quiz-card {
+    width: 95%;
+  }
+}
